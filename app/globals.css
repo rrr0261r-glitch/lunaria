@@ -1,0 +1,1027 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --i0: #020208;
+  --i1: #06060f;
+  --i2: #0b0b1a;
+  --g:  #D4AF37;
+  --gh: #E8CC6A;
+  --t0: #F0EDE6;
+  --t1: #C4C0B6;
+  --t2: #74706A;
+  --fm: 'Shippori Mincho', serif;
+  --fl: 'IM Fell English', serif;
+  --fc: 'Cinzel', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--i0);
+  color: var(--t1);
+  font-family: var(--fm);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--g); }
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 46%,
+    rgba(2,2,8,.1) 0%,
+    rgba(2,2,8,.62) 65%,
+    rgba(2,2,8,.94) 100%
+  );
+}
+
+.hero-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.hero-eyebrow {
+  font-family: var(--fc);
+  font-size: .46rem;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .55;
+}
+
+.hero-rule {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--g), transparent);
+  opacity: .45;
+}
+
+.hero-title {
+  font-family: var(--fm);
+  font-size: clamp(2rem, 9vw, 2.9rem);
+  font-weight: 700;
+  color: var(--t0);
+  line-height: 1.3;
+  letter-spacing: .06em;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--g);
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 52px;
+  background: rgba(2,2,8,.82);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(212,175,55,.13);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: var(--fc);
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .3em;
+  color: var(--g);
+  text-decoration: none;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.header-nav a {
+  font-family: var(--fc);
+  font-size: .45rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.header-nav a:hover { color: var(--g); }
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 560px;
+  z-index: 100;
+  display: flex;
+  background: rgba(2,2,8,.9);
+  backdrop-filter: blur(22px);
+  border-top: 1px solid rgba(212,175,55,.11);
+}
+
+.bnav-btn {
+  flex: 1;
+  padding: .65rem .4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .16rem;
+  text-decoration: none;
+  transition: background .15s;
+}
+
+.bnav-ic {
+  font-size: 1rem;
+  color: #3A3830;
+  transition: color .15s;
+  line-height: 1;
+}
+
+.bnav-lbl {
+  font-family: var(--fc);
+  font-size: .38rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #3A3830;
+  transition: color .15s;
+}
+
+.bnav-btn:hover .bnav-ic,
+.bnav-btn:hover .bnav-lbl { color: var(--g); }
+
+/* Main content */
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 1.5rem 5rem;
+}
+
+/* Section labels */
+.s-eye {
+  font-family: var(--fc);
+  font-size: .44rem;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .55;
+  margin-bottom: .45rem;
+  padding-top: 2.4rem;
+}
+
+.s-head {
+  font-family: var(--fm);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--t0);
+  letter-spacing: .05em;
+  margin-bottom: .3rem;
+}
+
+.s-rule {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--g), transparent);
+  margin-bottom: 1.8rem;
+}
+
+/* Card */
+.card {
+  background: var(--i2);
+  border: 1px solid rgba(212,175,55,.13);
+  padding: 1.6rem;
+  margin-bottom: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 36px; height: 36px;
+  border-top: 1px solid rgba(212,175,55,.2);
+  border-right: 1px solid rgba(212,175,55,.2);
+}
+
+.card-tag {
+  font-family: var(--fc);
+  font-size: .44rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .6;
+  margin-bottom: .9rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.card-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212,175,55,.18), transparent);
+}
+
+.card-tone {
+  font-family: var(--fc);
+  font-size: .5rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--g);
+  border: 1px solid rgba(212,175,55,.26);
+  padding: .2rem .7rem;
+  display: inline-block;
+  margin-bottom: 1.1rem;
+}
+
+.card-body {
+  font-size: .9rem;
+  color: var(--t1);
+  line-height: 2.05;
+  margin-bottom: 1.3rem;
+}
+
+.card-kws {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.3rem;
+}
+
+.card-kw {
+  font-family: var(--fm);
+  font-size: .68rem;
+  color: var(--t2);
+  padding: .1rem .44rem;
+  border: 1px solid #3A3830;
+  letter-spacing: .04em;
+}
+
+.card-act-lbl {
+  font-family: var(--fc);
+  font-size: .4rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .58;
+  margin-bottom: .4rem;
+}
+
+.card-act {
+  padding: .9rem 1.1rem;
+  border-left: 2px solid var(--g);
+  background: rgba(212,175,55,.04);
+  font-size: .84rem;
+  color: var(--t1);
+  line-height: 1.95;
+}
+
+/* Hero scroll cue */
+.hero-date {
+  font-family: var(--fl);
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--t2);
+  letter-spacing: .04em;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  opacity: .28;
+  animation: scroll-bob 2.8s ease-in-out infinite;
+}
+
+@keyframes scroll-bob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, var(--g), transparent);
+}
+
+.hero-scroll-lbl {
+  font-family: var(--fc);
+  font-size: .34rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--g);
+}
+
+/* ═══ Calendar — 星図 ═══ */
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.cal-btn {
+  width: 34px; height: 34px;
+  background: transparent;
+  border: none;
+  color: #A89B82;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color .2s;
+}
+.cal-btn:hover { color: #5A5142; }
+
+.cal-myr {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #5A5142;
+  letter-spacing: .12em;
+}
+.cal-myr-en {
+  font-family: 'IM Fell English', serif;
+  font-size: .7rem;
+  font-style: italic;
+  color: #B0A588;
+  margin-left: .6rem;
+}
+
+/* 格子を廃止。余白で区切る星図 */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  background: transparent;
+  border: none;
+}
+
+.cal-dh {
+  background: transparent;
+  padding: .4rem 0 1rem;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: .5rem;
+  letter-spacing: .18em;
+  color: #B0A588;
+}
+
+/* マスではなく、点が置かれる空間 */
+.cal-cell {
+  background: transparent;
+  min-height: 60px;
+  padding: .5rem .3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background .25s;
+}
+.cal-cell:hover {
+  background: rgba(203,191,166,0.12);
+}
+
+.cal-cell.dim {
+  opacity: .25;
+  pointer-events: none;
+}
+
+/* 今日 = 淡い光の輪 */
+.cal-cell.is-today .cal-dn {
+  color: #5A5142;
+  position: relative;
+}
+.cal-cell.is-today .cal-dn::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 28px; height: 28px;
+  border: 1px solid #CBBFA6;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 選択 = 満ちた光 */
+.cal-cell.is-selected .cal-dn {
+  color: #5A5142;
+  font-weight: 600;
+}
+.cal-cell.is-selected {
+  background: rgba(203,191,166,0.18);
+}
+
+.cal-dn {
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  color: #A89B82;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* 記録した日 = 灯る星 */
+.cal-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #C9A87C;
+  box-shadow: 0 0 6px rgba(201,168,124,0.7);
+}
+
+.cal-legend {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(203,191,166,0.3);
+}
+
+
+.leg {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-family: 'Cinzel', serif;
+  font-size: .38rem;
+  letter-spacing: .1em;
+  color: #8C816C;
+}
+
+.leg-dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #C9A87C;
+}
+
+/* Note panel */
+.note-panel {
+  margin-top: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height .4s ease, opacity .3s ease;
+}
+
+.note-panel.open {
+  max-height: 700px;
+  opacity: 1;
+}
+
+.note-panel-inner {
+  background: rgba(246,241,229,0.96);
+  border: 1px solid #CBBFA6;
+  border-top: 2px solid #8C816C;
+  border-radius: 0 0 3px 3px;
+  padding: 1.4rem;
+  box-shadow: 0 8px 32px rgba(90,81,66,0.08);
+}
+
+.note-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.note-panel-date {
+  font-family: 'Shippori Mincho', serif;
+  font-size: .95rem;
+  font-weight: 500;
+  color: #5A5142;
+  display: block;
+  letter-spacing: .06em;
+}
+
+.note-panel-event {
+  font-family: 'Cinzel', serif;
+  font-size: .4rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #8C816C;
+  display: block;
+  margin-top: .25rem;
+}
+
+/* Hoshi card */
+.hoshi-card {
+  padding: 1rem 1.1rem;
+  border-left: 2px solid #CBBFA6;
+  background: rgba(245,240,228,0.7);
+  border-radius: 0 2px 2px 0;
+}
+
+.hoshi-tags {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+  margin-bottom: .7rem;
+}
+
+.hoshi-tag {
+  font-family: 'Cinzel', serif;
+  font-size: .38rem;
+  letter-spacing: .1em;
+  color: #8C816C;
+  border: 1px solid #CBBFA6;
+  padding: .12rem .5rem;
+  border-radius: 1px;
+}
+
+.hoshi-message {
+  font-size: .85rem;
+  color: #5A5142;
+  line-height: 2;
+  font-family: 'Shippori Mincho', serif;
+}
+
+/* Note fields */
+.note-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.note-field {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.note-label {
+  font-family: 'Cinzel', serif;
+  font-size: .4rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #8C816C;
+}
+
+.note-textarea {
+  background: rgba(255,255,255,0.7);
+  border: none;
+  border-bottom: 1px solid #CBBFA6;
+  color: #5A5142;
+  font-family: 'Shippori Mincho', serif;
+  font-size: .88rem;
+  line-height: 1.9;
+  padding: .6rem .2rem;
+  resize: none;
+  outline: none;
+  width: 100%;
+  transition: border-color .2s;
+  border-radius: 0;
+}
+
+.note-textarea:focus { border-bottom-color: #5A5142; }
+
+.note-textarea::placeholder {
+  color: #CBBFA6;
+  font-style: italic;
+}
+
+/* Emotion chips */
+.emotion-chips {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-family: 'Shippori Mincho', serif;
+  font-size: .75rem;
+  color: #8C816C;
+  padding: .22rem .65rem;
+  background: transparent;
+  border: 1px solid #CBBFA6;
+  cursor: pointer;
+  transition: all .15s;
+  border-radius: 1px;
+}
+
+.chip:hover {
+  border-color: #8C816C;
+  color: #5A5142;
+}
+
+.chip.active {
+  border-color: #5A5142;
+  color: #5A5142;
+  background: rgba(90,81,66,0.07);
+}
+
+/* Note footer */
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #E8E0D0;
+}
+
+.note-saved {
+  font-family: 'Cinzel', serif;
+  font-size: .4rem;
+  letter-spacing: .14em;
+  color: #6A9E7A;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.note-saved.show { opacity: 1; }
+
+.note-save-btn {
+  font-family: 'Cinzel', serif;
+  font-size: .44rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #F5F0E4;
+  background: #5A5142;
+  border: none;
+  padding: .6rem 1.5rem;
+  cursor: pointer;
+  transition: background .2s;
+  border-radius: 1px;
+}
+
+.note-save-btn:hover { background: #4A4136; }
+
+/* s-eye / s-head を白地用に上書き(カレンダーページ内) */
+.main-content .s-eye { color: #8C816C; opacity: 1; }
+.main-content .s-head { color: #5A5142; }
+.main-content .s-rule {
+  background: linear-gradient(90deg, #CBBFA6, transparent);
+}
+
+
+/* REading cards */
+.reading-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.reading-card {
+  background: var(--i2);
+  border: 1px solid rgba(212,175,55,.12);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.reading-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 32px; height: 32px;
+  border-top: 1px solid rgba(212,175,55,.2);
+  border-right: 1px solid rgba(212,175,55,.2);
+}
+
+.rc-theme {
+  font-family: var(--fc);
+  font-size: .44rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .6;
+  margin-bottom: .8rem;
+}
+
+.rc-title {
+  font-family: var(--fm);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--t0);
+  margin-bottom: .6rem;
+  letter-spacing: .04em;
+}
+
+.rc-body {
+  font-size: .87rem;
+  color: var(--t1);
+  line-height: 2;
+}
+
+/* ============================================================
+   LUNARIA — 心の羅針盤(トップページ)
+   ▼ このブロックを globals.css の【末尾】にそのまま追記
+   既存のダークテーマ(星読み用)には影響しません
+   ============================================================ */
+
+.today-page {
+  min-height: 100vh;
+  background: #F6F1E5;
+  color: #4A4A42;
+  font-family: 'Shippori Mincho', serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 和紙:粒子+繊維 */
+.today-page .washi-grain {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.32 0 0 0 0 0.25 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.012 0.09' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.35 0 0 0 0.025 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+/* ボタニカル:壁紙ではなく、右の頁の外から入ってくる。左へ溶けて消える */
+.today-page .atlas-flora {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 62vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to left, black 35%, transparent 92%);
+  mask-image: linear-gradient(to left, black 35%, transparent 92%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 3s ease;
+}
+
+.today-page .today-inner {
+  position: relative; z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 7vh 28px 40px;
+}
+
+/* 頭 */
+.today-page .today-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5vh;
+}
+.today-page .today-brand {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.55em;
+  color: #46584B;
+}
+.today-page .today-date {
+  font-size: 11.5px;
+  letter-spacing: 0.26em;
+  color: #8A7358;
+}
+
+/* 今日のエネルギー */
+.today-page .today-daily {
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto 6vh;
+}
+.today-page .today-daily-text {
+  font-size: 13.5px;
+  color: #4A4A42;
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+  white-space: pre-wrap;
+}
+.today-page .today-daily-sub {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #8A7358;
+  letter-spacing: 0.15em;
+}
+
+/* 本体:非対称 — 左に縦書き、右に羅針盤 */
+.today-page .today-layout {
+  display: grid;
+  grid-template-columns: minmax(110px, 1fr) auto minmax(20px, 0.5fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.today-page .tate {
+  writing-mode: vertical-rl;
+  justify-self: start;
+  margin-left: 3vw;
+  height: 320px;
+}
+.today-page .tate h1 {
+  font-weight: 400;
+  font-size: clamp(20px, 2.5vw, 25px);
+  letter-spacing: 0.4em;
+  line-height: 2.4;
+  color: #4A4A42;
+}
+.today-page .tate-sub {
+  margin-right: 24px;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: #8A7358;
+}
+
+/* ── 羅針盤 ── */
+.compass-wrap {
+  position: relative;
+  width: min(76vw, 380px);
+  justify-self: center;
+}
+.compass-wrap .axis-label {
+  position: absolute;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #8A7358;
+  pointer-events: none;
+  font-family: 'Shippori Mincho', serif;
+}
+.compass-wrap .ax-top    { top: -24px; left: 50%; transform: translateX(-50%); }
+.compass-wrap .ax-bottom { bottom: -24px; left: 50%; transform: translateX(-50%); }
+.compass-wrap .ax-left   { left: -10px; top: 50%; transform: translate(-100%,-50%); writing-mode: vertical-rl; }
+.compass-wrap .ax-right  { right: -10px; top: 50%; transform: translate(100%,-50%); writing-mode: vertical-rl; }
+
+/* 今日の点の、ごく柔らかな灯 */
+@keyframes lunaria-gentle {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.6; }
+}
+.compass-wrap .today-halo { animation: lunaria-gentle 6s ease-in-out infinite; }
+
+/* 針が指したあとの言葉 */
+.compass-wrap .needle-word {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  color: #46584B;
+  opacity: 0;
+  transition: opacity 1.4s ease 0.9s;
+}
+.compass-wrap .needle-word.show { opacity: 1; }
+
+/* 問いと筆記 */
+.compass-wrap .compass-prompt {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 1.4s ease, opacity 1.4s ease 0.4s;
+  text-align: center;
+}
+.compass-wrap .compass-prompt.open { max-height: 360px; opacity: 1; }
+.compass-wrap .compass-q {
+  margin: 5vh 0 20px;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  line-height: 2.2;
+  color: #46584B;
+}
+.compass-wrap textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(74, 74, 66, 0.28);
+  background: transparent;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  line-height: 2.1;
+  color: #4A4A42;
+  padding: 6px 4px 12px;
+  resize: none; outline: none;
+  text-align: center;
+  transition: border-color 1s;
+  border-radius: 0;
+}
+.compass-wrap textarea::placeholder { color: rgba(138, 115, 88, 0.5); letter-spacing: 0.1em; }
+.compass-wrap textarea:focus { border-bottom-color: #A98F4E; }
+
+.compass-wrap .compass-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+}
+.compass-wrap .compass-saved {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #46584B;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.compass-wrap .compass-saved.show { opacity: 0.8; }
+.compass-wrap .compass-save {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  color: #F6F1E5;
+  background: #4A4A42;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 40px 12px 48px;
+  cursor: pointer;
+  transition: background 0.8s;
+}
+.compass-wrap .compass-save:hover { background: #46584B; }
+
+/* 信念と落款 */
+.today-page .creed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 9vh;
+}
+.today-page .creed p {
+  font-size: 13.5px;
+  letter-spacing: 0.28em;
+  color: #4A4A42;
+}
+.today-page .creed-seal {
+  width: 30px; height: 30px;
+  transform: rotate(-3deg);  /* 手で捺した不揃い */
+  opacity: 0.8;
+}
+
+/* 他の頁へ */
+.today-page .today-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 7vh;
+  padding-top: 26px;
+  border-top: 1px solid rgba(169, 143, 78, 0.35);
+}
+.today-page .today-nav a {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  color: #46584B;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.today-page .today-nav a:hover { color: #A98F4E; }
+.today-page .today-nav span { color: #A98F4E; font-size: 11px; }
+
+/* ── モバイル:縦書きは横に戻し、羅針盤を中央へ ── */
+@media (max-width: 720px) {
+  .today-page .today-layout { display: block; }
+  .today-page .tate {
+    writing-mode: horizontal-tb;
+    height: auto;
+    margin: 0 0 6vh;
+    text-align: center;
+  }
+  .today-page .tate h1 { letter-spacing: 0.18em; }
+  .today-page .tate-sub { margin: 12px 0 0; display: block; }
+  .compass-wrap { margin: 0 auto; width: min(84vw, 340px); }
+  .today-page .atlas-flora { width: 90vw; opacity: 0.35 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .today-page *, .compass-wrap * {
+    animation: none !important;
+    transition-duration: 0.01s !important;
+  }
+}
