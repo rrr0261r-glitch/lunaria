@@ -808,7 +808,7 @@ body {
   font-style: italic;
   font-size: 14px;
   letter-spacing: 0.55em;
-  color: #46584B;
+  color: ##C9959A84B;
 }
 .today-page .today-date {
   font-size: 11.5px;
@@ -855,7 +855,7 @@ body {
   font-size: clamp(20px, 2.5vw, 25px);
   letter-spacing: 0.4em;
   line-height: 2.4;
-  color:  #2D4A3E;   
+  color:  #E8c5c8;   
 }
 .today-page .tate-sub {
   margin-right: 24px;
@@ -874,13 +874,13 @@ body {
   position: absolute;
   font-size: 11px;
   letter-spacing: 0.3em;
-  color:  #2D4A3E;   
+  color:  #C9959A;   
   pointer-events: none;
   font-family: 'Shippori Mincho', serif;
   font-weight: 600;
 }
 .compass-wrap .ax-top    { top: -24px; left: 50%; transform: translateX(-50%); }
-.compass-wrap .ax-bottom { bottom: -24px; left: 50%; transform: translateX(-50%); }
+.compass-wrap .ax-bottom { bottom: -44px; left: 50%; transform: translateX(-50%); }
 .compass-wrap .ax-left   { left: -10px; top: 50%; transform: translate(-100%,-50%); writing-mode: vertical-rl; }
 .compass-wrap .ax-right  { right: -10px; top: 50%; transform: translate(100%,-50%); writing-mode: vertical-rl; }
 
@@ -897,7 +897,7 @@ body {
   margin-top: 28px;
   font-size: 12.5px;
   letter-spacing: 0.22em;
-  color: #46584B;
+  color: #C9959A;
   opacity: 0;
   transition: opacity 1.4s ease 0.9s;
 }
@@ -915,7 +915,7 @@ body {
   font-size: 15px;
   letter-spacing: 0.14em;
   line-height: 2.2;
-  color: #46584B;
+  color: #E8C5C8;
 }
 .compass-wrap textarea {
   display: block;
@@ -926,7 +926,7 @@ body {
   font-family: 'Shippori Mincho', serif;
   font-size: 15px;
   line-height: 2.1;
-  color: #4A4A42;
+  color: #E8C5C8;
   padding: 6px 4px 12px;
   resize: none; outline: none;
   text-align: center;
@@ -946,7 +946,7 @@ body {
 .compass-wrap .compass-saved {
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #46584B;
+  color: #C9959A;
   opacity: 0;
   transition: opacity 0.6s;
 }
@@ -955,15 +955,15 @@ body {
   font-family: 'Shippori Mincho', serif;
   font-size: 13px;
   letter-spacing: 0.42em;
-  color: #F6F1E5;
-  background: #4A4A42;
+  color: #fff;
+  background: #C9959A;
   border: none;
   border-radius: 999px;
   padding: 12px 40px 12px 48px;
   cursor: pointer;
   transition: background 0.8s;
 }
-.compass-wrap .compass-save:hover { background: #46584B; }
+.compass-wrap .compass-save:hover { background: #B8848A; }
 
 
 /* ── モバイル:縦書きは横に戻し、羅針盤を中央へ ── */
