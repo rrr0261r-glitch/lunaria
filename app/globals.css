@@ -757,7 +757,7 @@ body {
 .today-page {
   min-height: 100vh;
   background: #F6F1E5;
-  color: #4A4A42;
+  color:  #2D4A3E;   
   font-family: 'Shippori Mincho', serif;
   -webkit-font-smoothing: antialiased;
   padding-bottom: 100px;
@@ -855,13 +855,13 @@ body {
   font-size: clamp(20px, 2.5vw, 25px);
   letter-spacing: 0.4em;
   line-height: 2.4;
-  color: #4A4A42;
+  color:  #2D4A3E;   
 }
 .today-page .tate-sub {
   margin-right: 24px;
   font-size: 12px;
   letter-spacing: 0.32em;
-  color: #8A7358;
+  color:  #2D4A3E;   
 }
 
 /* ── 羅針盤 ── */
@@ -874,9 +874,10 @@ body {
   position: absolute;
   font-size: 11px;
   letter-spacing: 0.3em;
-  color: #8A7358;
+  color:  #2D4A3E;   
   pointer-events: none;
   font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
 }
 .compass-wrap .ax-top    { top: -24px; left: 50%; transform: translateX(-50%); }
 .compass-wrap .ax-bottom { bottom: -24px; left: 50%; transform: translateX(-50%); }
@@ -964,45 +965,6 @@ body {
 }
 .compass-wrap .compass-save:hover { background: #46584B; }
 
-/* 信念と落款 */
-.today-page .creed {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 9vh;
-}
-.today-page .creed p {
-  font-size: 13.5px;
-  letter-spacing: 0.28em;
-  color: #4A4A42;
-}
-.today-page .creed-seal {
-  width: 30px; height: 30px;
-  transform: rotate(-3deg);  /* 手で捺した不揃い */
-  opacity: 0.8;
-}
-
-/* 他の頁へ */
-.today-page .today-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-  margin-top: 7vh;
-  padding-top: 26px;
-  border-top: 1px solid rgba(169, 143, 78, 0.35);
-}
-.today-page .today-nav a {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 13px;
-  letter-spacing: 0.24em;
-  color: #46584B;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.today-page .today-nav a:hover { color: #A98F4E; }
-.today-page .today-nav span { color: #A98F4E; font-size: 11px; }
 
 /* ── モバイル:縦書きは横に戻し、羅針盤を中央へ ── */
 @media (max-width: 720px) {

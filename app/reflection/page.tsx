@@ -2,7 +2,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import Backdrop from '../components/Backdrop';
+import Backdrop from '../components/NightBackdrop';
 import { relative } from 'path';
 
 interface DiaryEntry {

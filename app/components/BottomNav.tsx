@@ -28,10 +28,10 @@ export default function BottomNav() {
         transform: 'translateX(-50%)',
         width: '100%', maxWidth: 560, zIndex: 100,
         display: 'flex',
-        background: 'rgba(248,244,236,0.92)',
+        background: 'rgba(180,180,180,0.15)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderTop: '1px solid rgba(203,191,166,0.5)',
+        borderTop: '1px solid rgba(255,255,255,0.12)',
         paddingBottom: 'env(safe-area-inset-bottom)',
       }}
     >

@@ -19,6 +19,47 @@ function getMoodWord(x: number, y: number): string {
   if (!high && warm) return 'しずか、あたたかい';
   return 'しずか、つめたい';
 }
+// 点の位置から、固有の色を計算する
+// 角度 = 何色か（上赤→右橙→下青→左緑、なめらかに）
+// 中心からの距離 = どれだけ鮮やかか
+  function getMoodColor(x: number, y: number): string {
+  // 角度を出す（上を0度として時計回り）
+  // y は画面座標なので上が負。上向きを正にして扱う
+  const angle = Math.atan2(x, y) * (180 / Math.PI); // -180〜180
+  const deg = (angle + 360) % 360; // 0〜360
+
+  // 4方向に色相を割り当て、間はなめらかに補間
+  // 上(0°)=赤14 / 右(90°)=橙32 / 下(180°)=青210 / 左(270°)=緑130
+  const stops = [
+    { d: 0,   h: 14  },  // 上・赤
+    { d: 90,  h: 32  },  // 右・オレンジ
+    { d: 180, h: 210 },  // 下・青
+    { d: 270, h: 130 },  // 左・緑
+    { d: 360, h: 14  },  // 一周して赤に戻る
+  ];
+  let hue = 14;
+  for (let i = 0; i < stops.length - 1; i++) {
+    if (deg >= stops[i].d && deg <= stops[i + 1].d) {
+      const t = (deg - stops[i].d) / (stops[i + 1].d - stops[i].d);
+      // 色相を最短距離で補間
+      let h1 = stops[i].h;
+      let h2 = stops[i + 1].h;
+      if (Math.abs(h2 - h1) > 180) {
+        if (h2 > h1) h1 += 360; else h2 += 360;
+      }
+      hue = (h1 + (h2 - h1) * t) % 360;
+      break;
+    }
+  }
+
+  // 中心からの距離（0〜1）で、鮮やかさと明るさを決める
+  const dist = Math.min(1, Math.sqrt(x * x + y * y));
+  const sat = 20 + dist * 45;   // 中心は淡く(20%)、端は鮮やか(65%)
+  const light = 72 - dist * 20; // 中心は明るく、端は少し濃く
+
+  return `hsl(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%)`;
+}
+
 
 function todayKey() {
   const n = new Date();
@@ -130,9 +171,10 @@ export function MoodCircle({ onSaved }: Props) {
               left: `calc(50% + ${point.x * (SIZE / 2)}px)`,
               top: `calc(50% + ${point.y * (SIZE / 2)}px)`,
               width: 16, height: 16, borderRadius: '50%',
-              background: '#8C816C',
-              boxShadow: '0 0 16px rgba(140,129,108,0.6), 0 0 0 6px rgba(140,129,108,0.15)',
-              transform: 'translate(-50%, -50%)',
+              background: point ? getMoodColor(point.x, point.y) : '#C9A87C',
+              boxShadow: point
+                ? `0 0 20px ${getMoodColor(point.x, point.y)}, 0 0 0 6px ${getMoodColor(point.x, point.y)}33`
+                : '0 0 16px rgba(201,168,124,0.9)',
               transition: 'left 0.3s ease, top 0.3s ease',
             }} />
           )}
