@@ -757,7 +757,7 @@ body {
 .today-page {
   min-height: 100vh;
   background: #F6F1E5;
-  color:  #2D4A3E;   
+  color:  #E8C5C8;
   font-family: 'Shippori Mincho', serif;
   -webkit-font-smoothing: antialiased;
   padding-bottom: 100px;
@@ -808,7 +808,7 @@ body {
   font-style: italic;
   font-size: 14px;
   letter-spacing: 0.55em;
-  color: ##C9959A84B;
+  color: #8A7358;
 }
 .today-page .today-date {
   font-size: 11.5px;
