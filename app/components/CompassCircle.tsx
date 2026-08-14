@@ -298,18 +298,21 @@ function dismissGuide() {
         </div>
       </div>
 
-      {/* しずかラベル：常に最下部に固定 */}
-      <p style={{
-        textAlign: 'center',
-        fontSize: '11px',
-        letterSpacing: '0.3em',
-        color: '#C9959A',
-        fontFamily: "'Shippori Mincho', serif",
-        fontWeight: 600,
-        margin: '18px 0 0',
-      }}>しずか</p>
-
-    </div>
+      {/* しずかラベル：絶対位置で固定 */}
+        <p style={{
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          textAlign: 'center',
+          fontSize: '11px',
+          letterSpacing: '0.3em',
+          color: '#C9959A',
+          fontFamily: "'Shippori Mincho', serif",
+          fontWeight: 600,
+          margin: 0,
+        }}>しずか</p>
+            </div>
   );
 }
 
