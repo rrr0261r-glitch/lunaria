@@ -894,7 +894,7 @@ body {
 /* 針が指したあとの言葉 */
 .compass-wrap .needle-word {
   text-align: center;
-  margin-top: 28px;
+  margin-top: 20px;
   font-size: 12.5px;
   letter-spacing: 0.22em;
   color: #C9959A;

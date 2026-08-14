@@ -211,17 +211,6 @@ function dismissGuide() {
 
       <svg ref={svgRef} viewBox={`0 0 ${SIZE} ${SIZE}`} onClick={handleClick}
         style={{ width: '100%', height: 'auto', display: 'block', cursor: 'pointer' }}>
-        {/* しずかラベル */}
-          <text
-            x={C}
-            y={C + R + 22}
-            textAnchor="middle"
-            fontSize="11"
-            letterSpacing="4"
-            fill="#C9959A"
-            fontFamily="'Shippori Mincho', serif"
-            fontWeight="600"
-          >しずか</text>
         {/* ベース */}
         <circle cx={C} cy={C} r={R} fill="#FBF8EF" fillOpacity="0.45" />
 
@@ -292,6 +281,16 @@ function dismissGuide() {
           </g>
         )}
       </svg>
+      {/* 静かラベル */}
+       <p style={{
+        textAlign: 'center',
+        fontSize: '11px',
+        letterSpacing: '0.3em',
+        color: '#C9959A',
+        fontFamily: "'Shippori Mincho', serif",
+        fontWeight: 600,
+        margin: '10px 0 0',
+      }}>しずか</p>
 
       <p className={`needle-word ${point ? 'show' : ''}`}>
         今日、心はこちらを指しました
