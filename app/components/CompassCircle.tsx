@@ -280,17 +280,8 @@ function dismissGuide() {
             <circle cx={point.x} cy={point.y} r="4.5" fill={moodColor} />
           </g>
         )}
+
       </svg>
-      {/* 静かラベル */}
-       <p style={{
-        textAlign: 'center',
-        fontSize: '11px',
-        letterSpacing: '0.3em',
-        color: '#C9959A',
-        fontFamily: "'Shippori Mincho', serif",
-        fontWeight: 600,
-        margin: '10px 0 0',
-      }}>しずか</p>
 
       <p className={`needle-word ${point ? 'show' : ''}`}>
         今日、心はこちらを指しました
@@ -306,6 +297,20 @@ function dismissGuide() {
           <button className="compass-save" onClick={handleSave}>残 す</button>
         </div>
       </div>
+
+      {/* しずかラベル：常に最下部に固定 */}
+      <p style={{
+        textAlign: 'center',
+        fontSize: '11px',
+        letterSpacing: '0.3em',
+        color: '#C9959A',
+        fontFamily: "'Shippori Mincho', serif",
+        fontWeight: 600,
+        margin: '18px 0 0',
+      }}>しずか</p>
+
     </div>
   );
 }
+
+      
