@@ -869,6 +869,8 @@ body {
   position: relative;
   width: min(76vw, 380px);
   justify-self: center;
+  display: flexl
+  flex-direction: column;
 }
 .compass-wrap .axis-label {
   position: absolute;
@@ -908,6 +910,7 @@ body {
   max-height: 0; overflow: hidden; opacity: 0;
   transition: max-height 1.4s ease, opacity 1.4s ease 0.4s;
   text-align: center;
+  order: -1;
 }
 .compass-wrap .compass-prompt.open { max-height: 360px; opacity: 1; }
 .compass-wrap .compass-q {
