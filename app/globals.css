@@ -869,7 +869,7 @@ body {
   position: relative;
   width: min(76vw, 380px);
   justify-self: center;
-  display: flexl
+  display: flex;
   flex-direction: column;
 }
 .compass-wrap .axis-label {
