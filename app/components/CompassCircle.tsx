@@ -206,13 +206,22 @@ function dismissGuide() {
   </div>
 )}
       <span className="axis-label ax-top">たかぶり</span>
-      <span className="axis-label ax-bottom">しずか</span>
       <span className="axis-label ax-left">つめたい</span>
       <span className="axis-label ax-right">あたたかい</span>
 
       <svg ref={svgRef} viewBox={`0 0 ${SIZE} ${SIZE}`} onClick={handleClick}
         style={{ width: '100%', height: 'auto', display: 'block', cursor: 'pointer' }}>
-
+        {/* しずかラベル */}
+          <text
+            x={C}
+            y={C + R + 22}
+            textAnchor="middle"
+            fontSize="11"
+            letterSpacing="4"
+            fill="#C9959A"
+            fontFamily="'Shippori Mincho', serif"
+            fontWeight="600"
+          >しずか</text>
         {/* ベース */}
         <circle cx={C} cy={C} r={R} fill="#FBF8EF" fillOpacity="0.45" />
 
