@@ -756,8 +756,10 @@ body {
 
 .today-page {
   min-height: 100vh;
-  background: #F6F1E5;
-  color:  #E8C5C8;
+  background:
+    linear-gradient(145deg, rgba(246, 241, 229, 0.98), rgba(239, 231, 213, 0.96) 48%, rgba(226, 235, 224, 0.94)),
+    #F6F1E5;
+  color: #3F473C;
   font-family: 'Shippori Mincho', serif;
   -webkit-font-smoothing: antialiased;
   padding-bottom: 100px;
@@ -793,7 +795,7 @@ body {
   position: relative; z-index: 1;
   max-width: 860px;
   margin: 0 auto;
-  padding: 7vh 28px 40px;
+  padding: clamp(36px, 7vh, 72px) 28px 40px;
 }
 
 /* 頭 */
@@ -807,24 +809,25 @@ body {
   font-family: 'IM Fell English', serif;
   font-style: italic;
   font-size: 14px;
-  letter-spacing: 0.55em;
-  color: #8A7358;
+  letter-spacing: 0.42em;
+  color: #756247;
 }
 .today-page .today-date {
   font-size: 11.5px;
-  letter-spacing: 0.26em;
-  color: #8A7358;
+  letter-spacing: 0.18em;
+  color: #756247;
 }
 
 /* 今日のエネルギー */
 .today-page .today-daily {
   text-align: center;
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto 6vh;
+  padding: 0 8px;
 }
 .today-page .today-daily-text {
   font-size: 13.5px;
-  color: #4A4A42;
+  color: #354238;
   line-height: 2.2;
   letter-spacing: 0.08em;
   white-space: pre-wrap;
@@ -832,16 +835,16 @@ body {
 .today-page .today-daily-sub {
   margin-top: 10px;
   font-size: 11px;
-  color: #8A7358;
+  color: #756247;
   letter-spacing: 0.15em;
 }
 
 /* 本体:非対称 — 左に縦書き、右に羅針盤 */
 .today-page .today-layout {
   display: grid;
-  grid-template-columns: minmax(110px, 1fr) auto minmax(20px, 0.5fr);
+  grid-template-columns: minmax(120px, 1fr) auto minmax(28px, 0.42fr);
   align-items: center;
-  gap: 16px;
+  gap: clamp(18px, 4vw, 46px);
 }
 
 .today-page .tate {
@@ -853,9 +856,9 @@ body {
 .today-page .tate h1 {
   font-weight: 400;
   font-size: clamp(20px, 2.5vw, 25px);
-  letter-spacing: 0.4em;
+  letter-spacing: 0.34em;
   line-height: 2.4;
-  color:  #E8c5c8;   
+  color: #B87980;
 }
 .today-page .tate-sub {
   margin-right: 24px;
@@ -867,23 +870,95 @@ body {
 /* ── 羅針盤 ── */
 .compass-wrap {
   position: relative;
-  width: min(76vw, 380px);
+  width: min(76vw, 390px);
   justify-self: center;
-  padding-bottom: 40px;
+  padding: 28px 26px 34px;
+  border: 1px solid rgba(117, 98, 71, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.28), rgba(245,239,225,0.12)),
+    rgba(246, 241, 229, 0.42);
+  box-shadow: 0 22px 60px rgba(58, 57, 46, 0.13), inset 0 1px 0 rgba(255,255,255,0.48);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .compass-wrap .axis-label {
   position: absolute;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color:  #C9959A;   
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  color: #B87980;
   pointer-events: none;
   font-family: 'Shippori Mincho', serif;
   font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.45);
 }
-.compass-wrap .ax-top    { top: -24px; left: 50%; transform: translateX(-50%); }
-.compass-wrap .ax-bottom { bottom: -44px; left: 50%; transform: translateX(-50%); }
-.compass-wrap .ax-left   { left: -10px; top: 50%; transform: translate(-100%,-50%); writing-mode: vertical-rl; }
-.compass-wrap .ax-right  { right: -10px; top: 50%; transform: translate(100%,-50%); writing-mode: vertical-rl; }
+.compass-wrap .ax-top    { top: 8px; left: 50%; transform: translateX(-50%); }
+.compass-wrap .ax-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.compass-wrap .ax-left   { left: 6px; top: 44%; transform: translateY(-50%); writing-mode: vertical-rl; }
+.compass-wrap .ax-right  { right: 6px; top: 44%; transform: translateY(-50%); writing-mode: vertical-rl; }
+
+.compass-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: crosshair;
+  filter: drop-shadow(0 18px 28px rgba(74, 74, 66, 0.12));
+  touch-action: manipulation;
+}
+
+.compass-guide {
+  position: absolute;
+  inset: 28px 26px auto;
+  aspect-ratio: 1;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 1px solid rgba(169, 143, 78, 0.22);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255,255,255,0.9), rgba(251,248,239,0.86) 52%, rgba(238,229,207,0.92)),
+    rgba(251,248,239,0.92);
+  box-shadow: inset 0 0 48px rgba(169, 143, 78, 0.08), 0 12px 36px rgba(58, 57, 46, 0.12);
+  color: #2D4A3E;
+  cursor: pointer;
+  font-family: 'Shippori Mincho', serif;
+  padding: 32px;
+  text-align: center;
+}
+
+.compass-guide-title {
+  color: #2D4A3E;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+
+.compass-guide-body {
+  color: #4A4A42;
+  font-size: 12.5px;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.compass-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
+  width: min(220px, 84%);
+  color: #756247;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+}
+
+.compass-guide-cta {
+  margin-top: 2px;
+  color: #B87980;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+}
 
 /* 今日の点の、ごく柔らかな灯 */
 @keyframes lunaria-gentle {
@@ -895,10 +970,10 @@ body {
 /* 針が指したあとの言葉 */
 .compass-wrap .needle-word {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 12.5px;
-  letter-spacing: 0.22em;
-  color: #C9959A;
+  letter-spacing: 0.18em;
+  color: #B87980;
   opacity: 0;
   transition: opacity 1.4s ease 0.9s;
 }
@@ -909,46 +984,48 @@ body {
   max-height: 0; overflow: hidden; opacity: 0;
   transition: max-height 1.4s ease, opacity 1.4s ease 0.4s;
   text-align: center;
-  order: -1;
 }
 .compass-wrap .compass-prompt.open { max-height: 360px; opacity: 1; }
 .compass-wrap .compass-q {
-  margin: 5vh 0 20px;
+  margin: 26px 0 16px;
   font-size: 15px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   line-height: 2.2;
-  color: #E8C5C8;
+  color: #2D4A3E;
 }
 .compass-wrap textarea {
   display: block;
   width: 100%;
-  border: none;
-  border-bottom: 1px solid rgba(74, 74, 66, 0.28);
-  background: transparent;
+  border: 1px solid rgba(117, 98, 71, 0.16);
+  background: rgba(255,255,255,0.34);
   font-family: 'Shippori Mincho', serif;
-  font-size: 15px;
-  line-height: 2.1;
-  color: #E8C5C8;
-  padding: 6px 4px 12px;
+  font-size: 14px;
+  line-height: 2;
+  color: #354238;
+  padding: 12px 14px;
   resize: none; outline: none;
-  text-align: center;
-  transition: border-color 1s;
-  border-radius: 0;
+  text-align: left;
+  transition: border-color .4s ease, background .4s ease, box-shadow .4s ease;
+  border-radius: 6px;
 }
-.compass-wrap textarea::placeholder { color: rgba(138, 115, 88, 0.5); letter-spacing: 0.1em; }
-.compass-wrap textarea:focus { border-bottom-color: #A98F4E; }
+.compass-wrap textarea::placeholder { color: rgba(117, 98, 71, 0.55); letter-spacing: 0.08em; }
+.compass-wrap textarea:focus {
+  border-color: rgba(169, 143, 78, 0.55);
+  background: rgba(255,255,255,0.52);
+  box-shadow: 0 0 0 3px rgba(169, 143, 78, 0.1);
+}
 
 .compass-wrap .compass-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 26px;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 16px;
 }
 .compass-wrap .compass-saved {
   font-size: 11px;
-  letter-spacing: 0.2em;
-  color: #C9959A;
+  letter-spacing: 0.16em;
+  color: #4E7B59;
   opacity: 0;
   transition: opacity 0.6s;
 }
@@ -956,31 +1033,168 @@ body {
 .compass-wrap .compass-save {
   font-family: 'Shippori Mincho', serif;
   font-size: 13px;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.2em;
   color: #fff;
-  background: #C9959A;
+  background: #B87980;
   border: none;
   border-radius: 999px;
-  padding: 12px 40px 12px 48px;
+  padding: 11px 26px 11px 30px;
   cursor: pointer;
-  transition: background 0.8s;
+  box-shadow: 0 10px 24px rgba(184, 121, 128, 0.22);
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease;
 }
-.compass-wrap .compass-save:hover { background: #B8848A; }
+.compass-wrap .compass-save:hover {
+  background: #9F6870;
+  box-shadow: 0 14px 28px rgba(159, 104, 112, 0.26);
+  transform: translateY(-1px);
+}
+.compass-wrap .compass-save:disabled {
+  cursor: default;
+  opacity: 0.45;
+  transform: none;
+}
+
+.app-bottom-nav {
+  position: fixed;
+  right: 14px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: 14px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 7px;
+  border: 1px solid rgba(117, 98, 71, 0.16);
+  border-radius: 8px;
+  background: rgba(246, 241, 229, 0.74);
+  box-shadow: 0 18px 48px rgba(30, 31, 24, 0.18), inset 0 1px 0 rgba(255,255,255,0.52);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.app-bottom-link {
+  position: relative;
+  min-width: 0;
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-radius: 6px;
+  color: #8A7358;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.app-bottom-link:hover {
+  background: rgba(255,255,255,0.32);
+  color: #5A5142;
+}
+
+.app-bottom-link.active {
+  background: rgba(45, 74, 62, 0.09);
+  color: #2D4A3E;
+}
+
+.app-bottom-link.active::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #B87980;
+}
+
+.app-bottom-mark {
+  height: 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  line-height: 1;
+  color: currentColor;
+}
+
+.app-bottom-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.app-bottom-en {
+  padding-left: 0.18em;
+  font-family: 'Cinzel', serif;
+  font-size: 6.5px;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  color: rgba(117, 98, 71, 0.7);
+}
 
 
 /* ── モバイル:縦書きは横に戻し、羅針盤を中央へ ── */
 @media (max-width: 720px) {
   .today-page .today-layout { display: block; }
+  .today-page .today-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
   .today-page .tate {
     writing-mode: horizontal-tb;
     height: auto;
-    margin: 0 0 6vh;
+    margin: 0 0 26px;
     text-align: center;
   }
   .today-page .tate h1 { letter-spacing: 0.18em; }
   .today-page .tate-sub { margin: 12px 0 0; display: block; }
-  .compass-wrap { margin: 0 auto; width: min(84vw, 340px); }
+  .compass-wrap {
+    margin: 0 auto;
+    width: min(92vw, 360px);
+    padding: 24px 20px 34px;
+  }
+  .compass-guide {
+    inset: 24px 20px auto;
+    padding: 26px;
+  }
+  .compass-guide-grid {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  .compass-wrap .ax-left { left: 4px; }
+  .compass-wrap .ax-right { right: 4px; }
+  .compass-wrap .compass-actions {
+    justify-content: space-between;
+  }
   .today-page .atlas-flora { width: 90vw; opacity: 0.35 !important; }
+}
+
+@media (max-width: 420px) {
+  .today-page .today-inner { padding-inline: 18px; }
+  .today-page .today-brand { letter-spacing: 0.32em; }
+  .today-page .today-date {
+    max-width: 48%;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .compass-wrap .axis-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+  .app-bottom-nav {
+    right: 10px;
+    left: 10px;
+    padding: 6px;
+  }
+  .app-bottom-link {
+    min-height: 54px;
+  }
+  .app-bottom-label {
+    font-size: 11.5px;
+  }
+  .app-bottom-en {
+    font-size: 5.8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

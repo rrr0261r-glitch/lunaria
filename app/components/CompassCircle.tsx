@@ -44,21 +44,20 @@ export function CompassCircle() {
   const [savedFlash, setSavedFlash] = useState(false);
   const [pastStars, setPastStars] = useState<Star[]>([]);
 
-  // 初回ガイド
-const [showGuide, setShowGuide] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
 
-useEffect(() => {
-  try {
-    if (!localStorage.getItem('lunaria_compass_guided')) {
-      setShowGuide(true);
-    }
-  } catch {}
-}, []);
+  useEffect(() => {
+    try {
+      if (!localStorage.getItem('lunaria_compass_guided')) {
+        setShowGuide(true);
+      }
+    } catch {}
+  }, []);
 
-function dismissGuide() {
-  try { localStorage.setItem('lunaria_compass_guided', '1'); } catch {}
-  setShowGuide(false);
-}
+  function dismissGuide() {
+    try { localStorage.setItem('lunaria_compass_guided', '1'); } catch {}
+    setShowGuide(false);
+  }
 
   useEffect(() => {
     try {
@@ -167,50 +166,33 @@ function dismissGuide() {
   const needleLen = point ? Math.hypot(point.x - C, point.y - C) : 0;
   const tailLen = point ? Math.min(24, needleLen * 0.3) : 0;
   const moodColor = point ? getMoodColor(point.x, point.y) : '#A98F4E';
+  const hasNeedle = Boolean(point && needleLen > 0);
 
   return (
     <div className="compass-wrap">
-      {/* 初回ガイド */}
-{showGuide && (
-  <div style={{
-    position: 'absolute', inset: 0, zIndex: 10,
-    display: 'flex', flexDirection: 'column',
-    alignItems: 'center', justifyContent: 'center',
-    background: 'rgba(251,248,239,0.92)',
-    borderRadius: '50%',
-    padding: '32px 24px',
-    textAlign: 'center',
-    cursor: 'pointer',
-  }} onClick={dismissGuide}>
-    <p style={{
-      fontFamily: "'Shippori Mincho', serif",
-      fontSize: '13px',
-      lineHeight: 2.2,
-      letterSpacing: '0.12em',
-      color: '#2D4A3E',
-      marginBottom: '20px',
-    }}>
-      円の中をタップして<br />
-      今日の心を置いてみてください<br />
-      <br />
-      上 → たかぶり・高揚<br />
-      下 → しずか・落ち着き<br />
-      右 → あたたかい・つながり<br />
-      左 → つめたい・孤独・集中
-    </p>
-    <span style={{
-      fontSize: '11px',
-      letterSpacing: '0.2em',
-      color: '#8A7358',
-    }}>タップして始める</span>
-  </div>
-)}
+      {showGuide && (
+        <button className="compass-guide" onClick={dismissGuide}>
+          <span className="compass-guide-title">心の場所を、ひとつ置く</span>
+          <span className="compass-guide-body">
+            円の中をタップして<br />
+            今日の気分を記録します
+          </span>
+          <span className="compass-guide-grid" aria-hidden="true">
+            <span>上：たかぶり</span>
+            <span>下：しずか</span>
+            <span>右：あたたかい</span>
+            <span>左：つめたい</span>
+          </span>
+          <span className="compass-guide-cta">タップして始める</span>
+        </button>
+      )}
       <span className="axis-label ax-top">たかぶり</span>
       <span className="axis-label ax-left">つめたい</span>
       <span className="axis-label ax-right">あたたかい</span>
+      <span className="axis-label ax-bottom">しずか</span>
 
       <svg ref={svgRef} viewBox={`0 0 ${SIZE} ${SIZE}`} onClick={handleClick}
-        style={{ width: '100%', height: 'auto', display: 'block', cursor: 'pointer' }}>
+        className="compass-svg" aria-label="今日の心の位置を選ぶ羅針盤">
         {/* ベース */}
         <circle cx={C} cy={C} r={R} fill="#FBF8EF" fillOpacity="0.45" />
 
@@ -254,7 +236,7 @@ function dismissGuide() {
         ))}
 
         {/* 針 */}
-        {point && (
+        {hasNeedle && point && (
           <>
             <line x1={C} y1={C}
               x2={C - (point.x - C) / needleLen * tailLen}
@@ -275,7 +257,7 @@ function dismissGuide() {
         {/* 今日の点:位置連動の色 */}
         {point && (
           <g>
-            <circle cx={point.x} cy={point.y} r="11"
+            <circle className="today-halo" cx={point.x} cy={point.y} r="11"
               fill="none" stroke={moodColor} strokeWidth="0.8" opacity="0.5" />
             <circle cx={point.x} cy={point.y} r="4.5" fill={moodColor} />
           </g>
@@ -294,22 +276,9 @@ function dismissGuide() {
           placeholder="ひとことでも、じゅうぶん" />
         <div className="compass-actions">
           <span className={`compass-saved ${savedFlash ? 'show' : ''}`}>残しました</span>
-          <button className="compass-save" onClick={handleSave}>残 す</button>
+          <button className="compass-save" onClick={handleSave} disabled={!point}>残す</button>
         </div>
       </div>
-
-     {/* しずかラベル：タップ前のみ表示 */}
-{!point && (
-  <p style={{
-    textAlign: 'center',
-    fontSize: '11px',
-    letterSpacing: '0.3em',
-    color: '#C9959A',
-    fontFamily: "'Shippori Mincho', serif",
-    fontWeight: 600,
-    margin: '10px 0 0',
-  }}>しずか</p>
-)}
     </div>
   );    
   }
