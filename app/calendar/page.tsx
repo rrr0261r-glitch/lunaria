@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { getMonthEvents, isFullMoonDay, isNewMoonDay, findPrecedingNewMoon, type MonthEvent } from '@/lib/astro'
-import Backdrop from '../components/NightBackdrop';
+import Backdrop from '../components/LunariaBackdrop';
 
 const MONTHS_JP = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
