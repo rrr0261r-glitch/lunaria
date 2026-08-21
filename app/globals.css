@@ -1203,3 +1203,66 @@ body {
     transition-duration: 0.01s !important;
   }
 }
+
+/* 書く画面 */
+.lunaria-write {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 0;
+}
+
+.lunaria-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(200, 210, 205, 0.3);
+  color: #EDE8DC;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+  padding: 8px 4px 16px;
+  resize: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.lunaria-textarea::placeholder {
+  color: rgba(200, 210, 205, 0.4);
+  letter-spacing: 0.12em;
+}
+
+.lunaria-send {
+  align-self: center;
+  background: transparent;
+  border: 1px solid rgba(200, 210, 205, 0.35);
+  border-radius: 999px;
+  color: rgba(200, 210, 205, 0.8);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  padding: 10px 36px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.lunaria-send:hover {
+  border-color: rgba(200, 210, 205, 0.6);
+  color: rgba(200, 210, 205, 1);
+}
+
+.lunaria-send:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* 分析中 */
+.lunaria-analyzing {
+  text-align: center;
+  padding: 40px 0;
+  color: rgba(200, 210, 205, 0.5);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+}
