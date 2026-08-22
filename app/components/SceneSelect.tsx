@@ -36,7 +36,7 @@ export function SceneSelect({ onEnter }: { onEnter: (scene: Scene) => void }) {
   }
 
   return (
-    <div className="relative flex-1 overflow-hidden">
+    <div style={{ position: 'relative', flex: 1, overflow: 'hidden' }}>
       <div
         style={{
           display: 'grid',
