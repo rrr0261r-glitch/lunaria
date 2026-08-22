@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
-import { useRouter } from "next/navigation"
+import { useMemo, useRef, useState } from "react"
 import { EmotionCircle2, type EmotionPoint } from "./EmotionCircle2"
 import { SceneSelect, type Scene } from "./SceneSelect"
 
@@ -33,7 +32,6 @@ const SEED: EmotionPoint[] = [
 type Phase = "scene" | "writing" | "placed"
 
 export function LunariaToday() {
-  const router = useRouter()
   const [phase, setPhase] = useState<Phase>("scene")
   const [scene, setScene] = useState<Scene | null>(null)
   const [text, setText] = useState("")
@@ -41,14 +39,6 @@ export function LunariaToday() {
   const [latest, setLatest] = useState<EmotionPoint | null>(null)
   const countRef = useRef(0)
   
-  useEffect(() => {
-    try {
-      if (!localStorage.getItem('lunaria_intro_seen')) {
-        router.push('/intro')
-      }
-    } catch {}
-  }, [router])
-
   const hasText = text.trim().length > 0
 
   const keep = () => {
