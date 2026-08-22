@@ -39,8 +39,9 @@ export function SceneSelect({ onEnter }: { onEnter: (scene: Scene) => void }) {
     <div style={{ position: 'relative', flex: 1, overflow: 'hidden' }}>
       <div
         style={{
+          position: 'absolute',
+          inset: 0,
           display: 'grid',
-          height: '100%',
           gridTemplateColumns: '1fr 1fr',
           gridTemplateRows: '1fr 1fr',
           gap: '20px',
